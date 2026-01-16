@@ -23,8 +23,6 @@ CommandDictionary::CommandDictionary()
 
 	// Rasterization commands
 	RegisterCommand<CmdDrawPixel>();
-
-	// Set Color
 	RegisterCommand<CmdSetColor>();
 }
 
