@@ -5,4 +5,4 @@
   imgui_impl_win32.cpp
   imgui_widgets.cpp
   Generating Code...
-  ImGui.vcxproj -> D:\LaSalle College (2)\3D_Graphics_and_Applications - JP\x64\Debug\ImGui.lib
+  ImGui.vcxproj -> C:\LaSalle 2Year\3D_Graphics\x64\Debug\ImGui.lib

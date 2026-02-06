@@ -1,4 +1,5 @@
 #pragma once
+
 #include "Command.h"
 
 class CmdBeginDraw : public Command
@@ -6,14 +7,14 @@ class CmdBeginDraw : public Command
 public:
 	const char* GetName() override
 	{
-		return "Begin Draw";
+		return "BeginDraw";
 	}
 	const char* GetDescription() override
 	{
-		return "Begin Draw(topology)\n"
+		return "BeginDraw(topology)\n"
 			"\n"
-			"- start storing vertices\n"
-			"- store topology (point, line, triagle";
-
+			"- starts storing vertices\n"
+			"- stores topology (point, line, triangle)";
 	}
-}
+	bool Execute(const std::vector<std::string>& params) override;
+};

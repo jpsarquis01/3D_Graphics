@@ -3,6 +3,6 @@
 
 bool CmdEndDraw::Execute(const std::vector<std::string>& params)
 {
-	// send vertices to rasterize
-	return PrimitiveManager::Get()->EndDraw();
+	// Sends vertices to rasterizer
+	return PrimitivesManager::Get()->EndDraw();
 }

@@ -171,11 +171,14 @@
     <None Include="xconfig.json" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Clipper.cpp" />
     <ClCompile Include="CmdBeginDraw.cpp" />
     <ClCompile Include="CmdDrawPixel.cpp" />
     <ClCompile Include="CmdEndDraw.cpp" />
     <ClCompile Include="CmdSetColor.cpp" />
+    <ClCompile Include="CmdSetFillMode.cpp" />
     <ClCompile Include="CmdSetResolution.cpp" />
+    <ClCompile Include="CmdSetViewPort.cpp" />
     <ClCompile Include="CmdVarFloat.cpp" />
     <ClCompile Include="CmdVertex.cpp" />
     <ClCompile Include="CommandDictionary.cpp" />
@@ -196,11 +199,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Clippers.h" />
     <ClInclude Include="CmdBeginDraw.h" />
     <ClInclude Include="CmdDrawPixel.h" />
     <ClInclude Include="CmdEndDraw.h" />
     <ClInclude Include="CmdSetColor.h" />
+    <ClInclude Include="CmdSetFillMode.h" />
     <ClInclude Include="CmdSetResolution.h" />
+    <ClInclude Include="CmdSetViewPort.h" />
     <ClInclude Include="CmdVarFloat.h" />
     <ClInclude Include="CmdVertex.h" />
     <ClInclude Include="Command.h" />

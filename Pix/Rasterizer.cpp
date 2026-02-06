@@ -88,7 +88,7 @@ void Rasterizer::DrawTriangle(const Vertex& a, const Vertex& b, const Vertex& c)
 {
 	switch (mFillMode)
 	{
-	case FillMode::WireFrame:
+	case FillMode::Wireframe:
 	{
 		DrawLine(a, b);
 		DrawLine(b, c);

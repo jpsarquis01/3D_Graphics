@@ -1,4 +1,5 @@
 #pragma once
+
 #include "Vertex.h"
 
 enum class Topology
@@ -8,20 +9,20 @@ enum class Topology
 	Triangle
 };
 
-class PrimitiveManager
+class PrimitivesManager
 {
 public:
-	static PrimitiveManager* Get();
+	static PrimitivesManager* Get();
 
 	// Start accepting vertices
 	bool BeginDraw(Topology topology);
-	//Add vertices to the list, only if drawing is enabled
+	// Add vertices to the list, only if drawing is enabled
 	void AddVertex(const Vertex& vertex);
-	// Send all the stored vertices to the reastirizer as especified topoloogy
+	// Send all the stored vertices to the rasterizer as specified topology
 	bool EndDraw();
 
 private:
-	PrimitiveManager();
+	PrimitivesManager();
 
 	std::vector<Vertex> mVertexBuffer;
 	Topology mTopology = Topology::Point;

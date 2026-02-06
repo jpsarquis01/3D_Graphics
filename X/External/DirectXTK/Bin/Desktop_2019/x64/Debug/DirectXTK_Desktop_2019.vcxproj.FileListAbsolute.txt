@@ -2,3 +2,4 @@ D:\PeterStuff\X\Main\X\External\DirectXTK\Bin\Desktop_2019\x64\Debug\DirectXTK.l
 D:\PeterStuff\X\Main\X\External\DirectXTK\Bin\Desktop_2019\x64\Debug\DirectXTK.pdb
 D:\LaSalle College (2)\3D_Graphics_and_Applications\X\External\DirectXTK\Bin\Desktop_2019\x64\Debug\DirectXTK.lib
 D:\LaSalle College (2)\3D_Graphics_and_Applications - JP\X\External\DirectXTK\Bin\Desktop_2019\x64\Debug\DirectXTK.lib
+C:\LaSalle 2Year\3D_Graphics\X\External\DirectXTK\Bin\Desktop_2019\x64\Debug\DirectXTK.lib
