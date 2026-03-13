@@ -1,4 +1,5 @@
 #pragma once
+
 #include "Command.h"
 
 class CmdSetAddressMode : public Command
@@ -11,10 +12,10 @@ public:
 	const char* GetDescription() override
 	{
 		return
-			"SetAddressMode(AddressMode addressMode)\n"
+			"SetAddressMode(mode)\n"
 			"\n"
-			"- sets the address mode for texture sampling\n"
-			"- AddressMode can be Border, Clamp, Wrap, Mirror";
+			"- sets the address mode for texture objects\n"
+			"- <border>, <clamp>, <wrap>, <mirror>";
 	}
 	bool Execute(const std::vector<std::string>& params) override;
 };

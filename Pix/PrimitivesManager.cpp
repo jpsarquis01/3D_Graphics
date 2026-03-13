@@ -63,18 +63,18 @@ PrimitivesManager::PrimitivesManager()
 {
 }
 
-void PrimitivesManager::SetCorrectUV(bool correctUV)
-{
-	mCorrectUV = correctUV;
-}
-
 void PrimitivesManager::OnNewFrame()
 {
 	mCullMode = CullMode::None;
+	mCorrectUV = false;
 }
 void PrimitivesManager::SetCullMode(CullMode mode)
 {
 	mCullMode = mode;
+}
+void PrimitivesManager::SetCorrectUV(bool correctUV)
+{
+	mCorrectUV = correctUV;
 }
 
 bool PrimitivesManager::BeginDraw(Topology topology, bool applyTransform)
@@ -166,11 +166,10 @@ bool PrimitivesManager::EndDraw()
 					triangle[v].posWorld = triangle[v].pos;
 					triangle[v].norm = MathHelper::TransformNormal(triangle[v].norm, matWorld);
 				}
-				
+
 				// if color.z >= 0, then it is a colored shape, otherwise its a texture
 				if (triangle[0].color.z >= 0.0f)
 				{
-					// apply lighting in world space (Flat or Gourand Shading)
 					if (shadeMode == ShadeMode::Flat)
 					{
 						triangle[0].color *= lm->ComputeLightColor(triangle[0].pos, triangle[0].norm);
@@ -188,14 +187,15 @@ bool PrimitivesManager::EndDraw()
 				}
 				else if (mCorrectUV)
 				{
-					// apply the correct uv in view space
-					// at this point we are in world space so next step is multyply by matView
+					// apply the corrective uv in view space (VIEW SPACE)
+					// at this point, we are in world space, so next step is
+					// multiply by matView
 					for (uint32_t v = 0; v < triangle.size(); ++v)
 					{
-						Vector3 viewSpacePos = MathHelper::TransformCoord(triangle[v].posWorld, matView);
+						Vector3 viewSpacePos = MathHelper::TransformCoord(triangle[v].pos, matView);
 						triangle[v].color.x /= viewSpacePos.z;
 						triangle[v].color.y /= viewSpacePos.z;
-						triangle[v].color.w = 1.0f / viewSpacePos.z;
+						triangle[v].color.w = 1.0 / viewSpacePos.z;
 					}
 				}
 

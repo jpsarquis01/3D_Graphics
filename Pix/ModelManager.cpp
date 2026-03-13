@@ -13,11 +13,11 @@ void ModelManager::Clear()
 
 const Model* ModelManager::GetModel(const std::string& fileName)
 {
-	auto iter = std::find_if(mModels.begin(), mModels.end(), [fileName](auto& model)
+	auto iter = std::find_if(mModels.begin(), mModels.end(),
+		[fileName](auto& model)
 		{
 			return model->GetFileName() == fileName;
 		});
-
 	if (iter != mModels.end())
 	{
 		return iter->get();

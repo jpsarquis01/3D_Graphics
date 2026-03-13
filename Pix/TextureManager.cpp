@@ -15,12 +15,11 @@ void TextureManager::Clear()
 void TextureManager::SetTexture(const std::string& fileName)
 {
 	auto iter = std::find_if(mTextures.begin(), mTextures.end(),
-		[fileName](auto& textures)
+		[fileName](auto& texture)
 		{
-			return textures->GetFileName() == fileName;
+			return texture->GetFileName() == fileName;
 		});
-
-	if (iter == mTextures.end())
+	if (iter != mTextures.end())
 	{
 		mCurrentTexture = iter->get();
 	}
@@ -32,9 +31,14 @@ void TextureManager::SetTexture(const std::string& fileName)
 	}
 }
 
-void TextureManager::SetAdressMode(AddressMode addressMode)
+void TextureManager::SetAddressMode(AddressMode mode)
 {
-	mAddressMode = addressMode;
+	mAddressMode = mode;
+}
+
+void TextureManager::SetUseFilter(bool useFilter)
+{
+	mUseFilter = useFilter;
 }
 
 X::Color TextureManager::SampleColor(const X::Color& uv) const
@@ -44,7 +48,7 @@ X::Color TextureManager::SampleColor(const X::Color& uv) const
 	{
 		float u = uv.x / uv.w;
 		float v = uv.y / uv.w;
-		color = mCurrentTexture->GetPixel(u, v);
+		color = mCurrentTexture->GetPixel(u, v, mAddressMode, mUseFilter);
 	}
 	return color;
 }

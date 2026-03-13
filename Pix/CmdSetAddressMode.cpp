@@ -7,30 +7,15 @@ bool CmdSetAddressMode::Execute(const std::vector<std::string>& params)
 	{
 		return false;
 	}
-
 	AddressMode addressMode = AddressMode::Border;
-	if (params[0] == "Border")
-	{
-		addressMode = AddressMode::Border;
-	}
-	else if (params[0] == "Clamp")
-	{
-		addressMode = AddressMode::Clamp;
-	}
-	else if (params[0] == "Wrap")
-	{
-		addressMode = AddressMode::Wrap;
-	}
-	else if (params[0] == "Mirror")
-	{
-		addressMode = AddressMode::Mirror;
-	}
+	if (params[0] == "border") { addressMode = AddressMode::Border; }
+	else if (params[0] == "wrap") { addressMode = AddressMode::Wrap; }
+	else if (params[0] == "clamp") { addressMode = AddressMode::Clamp; }
+	else if (params[0] == "mirror") { addressMode = AddressMode::Mirror; }
 	else
 	{
 		return false;
 	}
-
-	TextureManager::Get()->SetAdressMode(addressMode);
+	TextureManager::Get()->SetAddressMode(addressMode);
 	return true;
-
 }

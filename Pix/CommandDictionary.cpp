@@ -21,7 +21,9 @@
 #include "CmdSetShadeMode.h"
 #include "CmdModel.h"
 #include "CmdSetTexture.h"
+#include "CmdSetCorrectUV.h"
 #include "CmdSetAddressMode.h"
+#include "CmdSetUseFilter.h"
 
 CommandDictionary* CommandDictionary::Get()
 {
@@ -45,7 +47,6 @@ CommandDictionary::CommandDictionary()
 	// Rasterization commands
 	RegisterCommand<CmdDrawPixel>();
 	RegisterCommand<CmdSetColor>();
-
 	//RegisterCommand<CmdSetClipping>
 	RegisterCommand<CmdEnableDepthBuffer>();
 	RegisterCommand<CmdSetShadeMode>();
@@ -56,11 +57,13 @@ CommandDictionary::CommandDictionary()
 	RegisterCommand<CmdVertex>();
 	RegisterCommand<CmdSetFillMode>();
 	RegisterCommand<CmdSetCullMode>();
-	RegisterCommand<CmdSetTexture>();
-	RegisterCommand<CmdSetAddressMode>();
-
-	// Model commands
 	RegisterCommand<CmdModel>();
+
+	// Texture commands
+	RegisterCommand<CmdSetTexture>();
+	RegisterCommand<CmdSetCorrectUV>();
+	RegisterCommand<CmdSetAddressMode>();
+	RegisterCommand<CmdSetUseFilter>();
 
 	// Matrix Stack Commands (makes object world transform)
 	RegisterCommand<CmdPushTranslation>();

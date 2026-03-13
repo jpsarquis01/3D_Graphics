@@ -1,4 +1,5 @@
 #pragma once
+
 #include "Command.h"
 
 class CmdSetTexture : public Command
@@ -13,7 +14,7 @@ public:
 		return
 			"SetTexture(fileName)\n"
 			"\n"
-			"- sets the current texture for drawing";
+			"- sets the texture to use on the next drawn object";
 	}
 	bool Execute(const std::vector<std::string>& params) override;
 };

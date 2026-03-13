@@ -7,14 +7,14 @@ class CmdModel : public Command
 public:
 	const char* GetName() override
 	{
-		return "LoadModel";
+		return "Model";
 	}
 	const char* GetDescription() override
 	{
 		return
-			"LoadModel(fileName)\n"
+			"Model(fileName)\n"
 			"\n"
-			"- loads a model from file and makes it available for drawing";
+			"- loads a file to render, adds vertices to primitives manager";
 	}
 	bool Execute(const std::vector<std::string>& params) override;
 };
